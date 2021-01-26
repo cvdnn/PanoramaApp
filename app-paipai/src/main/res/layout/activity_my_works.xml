@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="@color/bg_white" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/app_title"/>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/lin_bg_switch" android:background="@mipmap/bg_myworks_switch1" android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginLeft="25dp" android:layout_marginTop="10dp" android:layout_marginRight="25dp">
+        <TextView android:textColor="@color/bg_white" android:gravity="center" android:id="@+id/tv_local_pic" android:padding="5dp" android:layout_width="0dp" android:layout_height="wrap_content" android:text="本地" android:layout_weight="1"/>
+        <TextView android:textColor="@color/black" android:gravity="center" android:id="@+id/tv_net_pic" android:padding="3dp" android:layout_width="0dp" android:layout_height="wrap_content" android:text="已上传" android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:padding="10dp" android:layout_width="match_parent" android:layout_height="match_parent">
+        <GridView android:id="@+id/grid_my_works" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:horizontalSpacing="@dimen/horizontal_margin" android:verticalSpacing="@dimen/horizontal_margin" android:columnWidth="100dp" android:numColumns="3"/>
+    </LinearLayout>
+</LinearLayout>

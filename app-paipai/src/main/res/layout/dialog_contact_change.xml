@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="@color/view_background" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <TextView android:textSize="18sp" android:textColor="@color/black" android:gravity="center_horizontal" android:id="@+id/title" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="15dp" android:layout_marginBottom="15dp" android:text="修改"/>
+    <EditText android:textSize="18sp" android:textColor="@color/black" android:id="@+id/et_text" android:background="@color/bg_white" android:padding="5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="20dp" android:layout_marginRight="20dp" android:hint="请输入新的名称" android:minEms="3"/>
+    <View android:background="@color/page_background" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="15dp"/>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <Button android:textSize="18sp" android:id="@+id/btn_cancel" android:background="@null" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="取消" android:layout_weight="1"/>
+        <View android:background="@color/page_background" android:layout_width="1dp" android:layout_height="match_parent"/>
+        <Button android:textSize="18sp" android:textColor="@color/title_background" android:id="@+id/btn_change" android:background="@null" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="确定" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

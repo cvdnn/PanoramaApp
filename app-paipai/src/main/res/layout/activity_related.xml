@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="@color/bg_white" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include android:id="@+id/title" layout="@layout/app_title"/>
+    <ImageView android:id="@+id/iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30dp" android:src="@mipmap/ic_launcher" android:scaleType="centerInside" android:layout_below="@+id/title" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="16sp" android:textColor="@color/text_color_main_light" android:id="@+id/tv_project_name_verson" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="" android:layout_below="@+id/iv" android:layout_centerHorizontal="true"/>
+    <TextView android:textSize="16sp" android:textColor="@color/text_color_main_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20dp" android:text="申义 版权所有" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
+</RelativeLayout>

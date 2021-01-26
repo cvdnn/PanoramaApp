@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:layout_width="60dp" android:layout_height="48dp">
+    <FrameLayout android:layout_gravity="center" android:id="@+id/container" android:background="?android:attr/selectableItemBackground" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="4dp">
+        <TextView android:textSize="12sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center" android:id="@+id/tv" android:background="@color/black" android:layout_width="wrap_content" android:layout_height="match_parent"/>
+    </FrameLayout>
+</LinearLayout>

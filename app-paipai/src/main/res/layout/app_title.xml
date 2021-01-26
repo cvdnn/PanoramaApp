@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/rl_title" android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="48dp">
+    <LinearLayout android:orientation="horizontal" android:id="@+id/ll_left" android:paddingLeft="@dimen/horizontal_margin" android:paddingRight="@dimen/horizontal_margin" android:clickable="true" android:layout_width="wrap_content" android:layout_height="match_parent" android:onClick="onTitleLeftClick">
+        <ImageView android:layout_gravity="center_vertical" android:id="@+id/iv_back" android:visibility="gone" android:layout_width="10dp" android:layout_height="20dp" android:src="@mipmap/back" android:scaleType="centerInside"/>
+        <TextView android:textSize="@dimen/title_btn_text_size" android:textColor="@color/text_color_title" android:layout_gravity="center_vertical" android:id="@+id/tv_left" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/horizontal_margin" android:text="@string/back"/>
+        <ImageView android:layout_gravity="center_vertical" android:id="@+id/iv_left" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY"/>
+    </LinearLayout>
+    <TextView android:textSize="@dimen/title_main_text_size" android:textColor="@color/text_color_title" android:id="@+id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:singleLine="true" android:layout_centerInParent="true"/>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/ll_right" android:paddingLeft="@dimen/horizontal_margin" android:paddingRight="@dimen/horizontal_margin" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerHorizontal="true" android:onClick="onTitleRightClick">
+        <TextView android:textColor="@color/text_color_title" android:gravity="center" android:id="@+id/tv_right" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="保存分享"/>
+        <ImageView android:layout_gravity="center_vertical" android:id="@+id/iv_right" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.deepai.paipai.support.camera.CameraContainer android:id="@+id/container" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <com.deepai.paipai.ui.widget.MyProgressView android:id="@+id/C2_MyProgress" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="5dp" android:layout_above="@+id/camera_bottom_bar"/>
+    <include android:id="@+id/camera_bottom_bar" layout="@layout/camera_bottom_bar"/>
+    <include android:id="@+id/camera_header_bar" layout="@layout/camera_header_bar"/>
+    <ProgressBar android:id="@+id/pb_create_image" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_above="@+id/camera_bottom_bar" style="?android:attr/progressBarStyleHorizontal"/>
+    <TextView android:textSize="18sp" android:textColor="@color/text_color_title" android:gravity="center" android:id="@+id/C2_RunTextView" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/making" android:layout_above="@+id/pb_create_image"/>
+</RelativeLayout>

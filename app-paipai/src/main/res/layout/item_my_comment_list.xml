@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/mc_image_iv"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/image_fail"
+        app:riv_corner_radius="5dp"
+        app:riv_oval="false" />
+
+    <TextView
+        android:id="@+id/mc_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/mc_image_iv"
+        android:text=""
+        android:textColor="@color/text_color_main_light"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/mc_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text=""
+        android:textColor="@color/text_color_main_light"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/mc_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mc_name_tv"
+        android:layout_toEndOf="@+id/mc_image_iv"
+        android:text=""
+        android:textColor="@color/text_color_main"
+        android:textSize="15sp" />
+</RelativeLayout>

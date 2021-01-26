@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="@mipmap/bg_login" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/app_title"/>
+    <RelativeLayout android:orientation="vertical" android:paddingLeft="@dimen/login_hor_margin" android:paddingRight="@dimen/login_hor_margin" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1">
+        <ImageView android:id="@+id/imageView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/title_height" android:src="@drawable/success" android:scaleType="fitXY" android:layout_centerHorizontal="true"/>
+        <TextView android:textSize="@dimen/title_main_text_size" android:textColor="@color/text_color_main_light" android:gravity="center" android:id="@+id/textView" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/title_height" android:text="@string/reset_pwd_success_tip" android:layout_below="@+id/imageView2"/>
+        <TextView android:textColor="@color/text_color_main_light" android:gravity="center" android:id="@+id/tv_login_now" android:background="@drawable/shape_btn_login" android:layout_width="match_parent" android:layout_height="@dimen/title_height" android:layout_marginTop="100dp" android:text="@string/login_now" android:layout_below="@+id/textView" android:layout_alignParentStart="true"/>
+    </RelativeLayout>
+</LinearLayout>

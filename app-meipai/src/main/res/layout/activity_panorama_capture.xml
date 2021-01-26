@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:fitsSystemWindows="true"
+    android:tag="layout/activity_panorama_capture_0">
+
+    <com.arashivision.sdkmedia.player.capture.InstaCapturePlayerView
+        android:id="@+id/preview_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/pano_camera_model"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:tag="binding_1"
+        android:text="@string/pano_preview_quality_tip"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <View
+        android:id="@+id/setting_bg"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:background="#b3000000"
+        android:tag="binding_2"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/pano_close_selector"
+        android:tag="binding_3"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <ImageView
+        android:id="@+id/battery_frame"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/ic_pano_battery_frame_white"
+        android:tag="binding_4"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <View
+        android:id="@+id/battery"
+        android:layout_width="19dp"
+        android:layout_height="9dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/pano_battery_white_shape"
+        android:tag="binding_5"
+        app:layout_constraintBottom_toBottomOf="@+id/battery_frame"
+        app:layout_constraintStart_toStartOf="@+id/battery_frame"
+        app:layout_constraintTop_toTopOf="@+id/battery_frame" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="78dp"
+        android:background="@drawable/pano_error_tip_bg"
+        android:gravity="center"
+        android:tag="binding_6"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toTopOf="0">
+
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/ic_pano_warning" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/pano_sd_card_error"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:tag="binding_7"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toTopOf="0"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_anim" />
+
+    <TextView
+        android:id="@+id/count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tag="binding_8"
+        android:textColor="@color/white"
+        android:textSize="100sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <LinearLayout
+        android:id="@+id/delay_capture"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="@dimen/pano_capture_sub_setting_margin_bottom"
+        android:gravity="center"
+        android:tag="binding_9"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture">
+
+        <ImageView
+            android:id="@+id/delay_capture_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/panorama_capture_setting_back_margin_left"
+            android:background="@drawable/pano_setting_delay_capture_back_selector"
+            android:tag="binding_10" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/delay_capture_value_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/panorama_capture_setting_list_margin_left" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/exposure_mode"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="@dimen/pano_capture_sub_setting_margin_bottom"
+        android:gravity="center"
+        android:tag="binding_11"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture">
+
+        <ImageView
+            android:id="@+id/exposure_mode_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/panorama_capture_setting_back_margin_left"
+            android:background="@drawable/pano_setting_exposure_mode_back_selector"
+            android:tag="binding_12" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/exposure_mode_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/panorama_capture_setting_list_margin_left" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/exposure_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/pano_capture_sub_setting_margin_bottom"
+        android:tag="binding_13"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture">
+
+        <ImageView
+            android:id="@+id/exposure_value_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/panorama_capture_setting_back_margin_left"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/pano_setting_exposure_value_back_selector"
+            android:tag="binding_14"
+            app:layout_constraintBottom_toBottomOf="0"
+            app:layout_constraintStart_toStartOf="0" />
+
+        <com.jaygoo.widget.RangeSeekBar
+            android:id="@+id/exposure_value_seek_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="18dp"
+            app:layout_constraintBottom_toBottomOf="0"
+            app:layout_constraintEnd_toStartOf="@+id/exposure_value_reset"
+            app:layout_constraintStart_toEndOf="@+id/exposure_value_back"
+            app:rsb_gravity="1"
+            app:rsb_indicator_background_color="@color/transparent"
+            app:rsb_indicator_height="12dp"
+            app:rsb_indicator_margin="16dp"
+            app:rsb_indicator_show_mode="3"
+            app:rsb_indicator_text_color="@color/white"
+            app:rsb_indicator_text_size="14sp"
+            app:rsb_indicator_width="12dp"
+            app:rsb_max="8"
+            app:rsb_min="-8"
+            app:rsb_mode="1"
+            app:rsb_progress_color="@color/white"
+            app:rsb_progress_default_color="@color/white"
+            app:rsb_progress_height="2dp"
+            app:rsb_step_auto_bonding="true"
+            app:rsb_steps="1"
+            app:rsb_thumb_height="12dp"
+            app:rsb_thumb_width="12dp"
+            app:rsb_tick_mark_mode="0" />
+
+        <TextView
+            android:id="@+id/exposure_value_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="26dp"
+            android:layout_marginBottom="17dp"
+            android:tag="binding_15"
+            android:text="@string/auto"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="0"
+            app:layout_constraintEnd_toEndOf="0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/white_balance"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="@dimen/pano_capture_sub_setting_margin_bottom"
+        android:gravity="center"
+        android:tag="binding_16"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture">
+
+        <ImageView
+            android:id="@+id/white_balance_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/panorama_capture_setting_back_margin_left"
+            android:background="@drawable/pano_setting_white_balance_back_selector"
+            android:tag="binding_17" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/white_balance_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/panorama_capture_setting_list_margin_left" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/iso"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="@dimen/pano_capture_sub_setting_margin_bottom"
+        android:gravity="center"
+        android:tag="binding_18"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture">
+
+        <ImageView
+            android:id="@+id/iso_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/panorama_capture_setting_back_margin_left"
+            android:background="@drawable/pano_setting_iso_back_selector"
+            android:tag="binding_19" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/iso_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/panorama_capture_setting_list_margin_left" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/shutter_speed"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="@dimen/pano_capture_sub_setting_margin_bottom"
+        android:gravity="center"
+        android:tag="binding_20"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture">
+
+        <ImageView
+            android:id="@+id/shutter_speed_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/panorama_capture_setting_back_margin_left"
+            android:background="@drawable/pano_setting_shutter_speed_back_selector"
+            android:tag="binding_21" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/shutter_speed_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/panorama_capture_setting_list_margin_left" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_setting_list"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
+        android:tag="binding_22"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture" />
+
+    <ImageView
+        android:id="@+id/setting"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/pano_setting_selector"
+        android:tag="binding_23"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintEnd_toEndOf="0" />
+
+    <Button
+        android:id="@+id/take_picture"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/pano_capture_selector"
+        android:tag="binding_24"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:tag="binding_25"
+        app:layout_constraintBottom_toBottomOf="@+id/take_picture"
+        app:layout_constraintEnd_toEndOf="@+id/take_picture"
+        app:layout_constraintStart_toStartOf="@+id/take_picture"
+        app:layout_constraintTop_toTopOf="@+id/take_picture"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/pano_take_picture_loading_anim" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/pano_take_picture_tip_bg"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:tag="binding_26"
+        android:text="@string/pano_take_picture_processing_tip"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/take_picture"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

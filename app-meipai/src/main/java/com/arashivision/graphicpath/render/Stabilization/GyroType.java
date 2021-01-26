@@ -1,0 +1,47 @@
+package com.arashivision.graphicpath.render.Stabilization;
+
+public class GyroType {
+    public static final int INS_AIR_GYRO = 2;
+    public static final int INS_AKIKO_FISHEYE = 17;
+    public static final int INS_AKIKO_FISHEYE_REVERSE = 19;
+    public static final int INS_AKIKO_WIDEANGLE = 18;
+    public static final int INS_AKIKO_WIDEANGLE_283 = 18;
+    public static final int INS_AKIKO_WIDEANGLE_577 = 18;
+    public static final int INS_AKIKO_WIDEANGLE_REVERSE = 20;
+    public static final int INS_EVO = 8;
+    public static final int INS_EVO_3D = 10;
+    public static final int INS_EVO_B2I = 9;
+    public static final int INS_EVO_TEST = 126;
+    public static final int INS_EVO_Z90 = 9;
+    public static final int INS_LITE_SINGLE = 125;
+    public static final int INS_LITE_SINGLE_BACK = 129;
+    public static final int INS_LITE_SINGLE_BACK_Z90 = 130;
+    public static final int INS_LITE_SINGLE_FRONT = 128;
+    public static final int INS_NANO1_IPHONE = 1;
+    public static final int INS_NANO1_TEST = 15;
+    public static final int INS_NANO2_TEST = 14;
+    public static final int INS_NANO_S = 4;
+    public static final int INS_ONE2 = 16;
+    public static final int INS_ONE2_TEST = 117;
+    public static final int INS_ONE2_TEST0 = 119;
+    public static final int INS_ONE2_TEST1 = 120;
+    public static final int INS_ONER_FE = 17;
+    public static final int INS_ONER_FE_REVERSE = 19;
+    public static final int INS_ONER_WA = 18;
+    public static final int INS_ONEX = 16;
+    public static final int INS_ONEX2 = 26;
+    public static final int INS_ONEXS = 26;
+    public static final int INS_PRO2 = 24;
+    public static final int INS_PRO2_FLOWSTATE = 24;
+    public static final int INS_PRO2_SINGLE = 23;
+    public static final int INS_PRO_GYRO = 3;
+    public static final int INS_PRO_SINGLE = 21;
+    public static final int INS_TITAN = 25;
+    public static final int INS_UNKNOW = -1;
+    public static final int INS_WEARABLE = 6;
+    public static final int INS_WEARABLE_B2I = 7;
+    public static final int INS_WEARABLE_TEST = 127;
+    public static final int INS_WEARABLE_TEST_Z90 = 131;
+    public static final int INS_WEARABLE_Z90 = 7;
+    public static final int NS_NANO2_GYRO = 0;
+}

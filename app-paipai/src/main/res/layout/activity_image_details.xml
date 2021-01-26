@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:background="@android:color/black" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/layout_image_details_head"/>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/big_img_detail_height">
+            <LinearLayout android:orientation="horizontal" android:id="@+id/linear_details_image_show" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="@dimen/big_img_detail_height"/>
+            <com.deepai.library.ui.widget.BigIVJust360 android:id="@+id/biv_show_img" android:layout_width="match_parent" android:layout_height="@dimen/big_img_detail_height"/>
+            <ImageButton android:id="@+id/image_details_music" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginRight="10dp" android:src="@mipmap/play_music" android:layout_alignParentRight="true" android:onClick="musicDetailClick"/>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+            <TextView android:textColor="@color/bg_white" android:layout_gravity="center" android:id="@+id/text_details_change_image" android:background="@drawable/shape_comment_edit" android:paddingLeft="10dp" android:paddingTop="6dp" android:paddingRight="10dp" android:paddingBottom="6dp" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10dp" android:text="@string/show_fish_eye_img" android:singleLine="true" android:layout_centerVertical="true"/>
+            <TextView android:textColor="@color/bg_white" android:layout_gravity="center" android:id="@+id/tv_details_auto_play" android:background="@drawable/shape_comment_edit" android:paddingLeft="10dp" android:paddingTop="6dp" android:paddingRight="10dp" android:paddingBottom="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10dp" android:text="@string/auto_play_start" android:singleLine="true" android:layout_toRightOf="@+id/text_details_change_image" android:layout_centerVertical="true"/>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true">
+                <TextView android:textColor="@color/bg_white" android:layout_gravity="center" android:id="@+id/text_details_comment" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15dp" android:text="评论数" android:singleLine="true" android:drawableLeft="@mipmap/logo_comment" android:drawablePadding="5dp"/>
+                <TextView android:textColor="@color/bg_white" android:layout_gravity="center" android:id="@+id/text_details_zan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="点赞数" android:singleLine="true" android:drawableLeft="@mipmap/logo_zan" android:drawablePadding="5dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <ScrollView android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="vertical" android:paddingLeft="10dp" android:paddingRight="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <com.deepai.paipai.ui.widget.CustomCommentShowView android:id="@+id/custom_comment_show" android:layout_width="match_parent" android:layout_height="match_parent"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@drawable/shape_comment_edit" android:layout_width="match_parent" android:layout_height="40dp" android:layout_margin="12dp">
+        <TextView android:textSize="15sp" android:textColor="@color/bg_white" android:gravity="center" android:layout_gravity="center" android:id="@+id/text_details_comment_publish" android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/comment_button_text"/>
+    </LinearLayout>
+</LinearLayout>

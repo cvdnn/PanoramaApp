@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="15dp">
+    <TextView android:textSize="@dimen/space_15" android:gravity="center" android:id="@+id/dialog_title" android:background="@drawable/dialog_messg_top" android:padding="@dimen/space_15" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/dialog_content" android:background="@drawable/folatview_content_bg" android:paddingLeft="10dp" android:paddingRight="10dp" android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="-2dp" android:layout_below="@+id/dialog_title">
+        <TextView android:textSize="14sp" android:gravity="center" android:layout_gravity="center" android:id="@+id/dialog_message" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@+id/dialog_ll" android:background="#dadada" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@+id/dialog_content">
+        <Button android:textSize="@dimen/content_text_size" android:id="@+id/dialog_positiveButton" android:background="#f8f8f8" android:padding="10dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="1dp" android:layout_marginBottom="1dp" android:text="@string/confirm" android:singleLine="true" android:layout_weight="1"/>
+        <Button android:textSize="@dimen/content_text_size" android:id="@+id/dialog_NeutralButton" android:background="#f8f8f8" android:padding="10dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="1dp" android:layout_marginBottom="1dp" android:text="@string/confirm" android:singleLine="true" android:layout_weight="1"/>
+        <Button android:textSize="@dimen/content_text_size" android:id="@+id/dialog_negativeButton" android:background="#f8f8f8" android:padding="10dp" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginLeft="1dp" android:layout_marginRight="1dp" android:layout_marginBottom="1dp" android:text="@string/cancel" android:singleLine="true" android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>

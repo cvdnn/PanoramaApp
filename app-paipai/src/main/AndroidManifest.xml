@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.deepai.paipai">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+    <application
+        android:name="com.deepai.paipai.app.PaiApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.deepai.paipai.ui.activity.basic.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.basic.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.deepai.paipai.ui.activity.ble.BleListActivity"
+            android:screenOrientation="portrait" />
+
+        <service android:name="com.deepai.paipai.sys.service.BlueToothServiceBle" />
+
+        <activity
+            android:name="com.deepai.paipai.ui.activity.photo.CameraActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CameraPageTheme" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.photo.CreatePhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.details.ImageDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.photo.HideInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.photo.CutImgActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.share.SaveShareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.share.ShareSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.photo.MyWorksActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.SetPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.SetUsernameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent1104929525" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.ForgetPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.ForgetPwd2Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.ForgetPwd3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.UserInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.wechattakephoto.WCTakePhotoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.MyCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.SystemSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.user.RelatedActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.deepai.paipai.ui.activity.photo.MusicListActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="7Epx8CigK8LlUE8pR9TEgSeC" />
+    </application>
+</manifest>

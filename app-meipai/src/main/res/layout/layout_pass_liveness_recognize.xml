@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:id="@+id/sapi_title_layout" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.baidu.pass.biometrics.face.liveness.view.XfordView android:id="@+id/xfordview" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:id="@+id/img_face_recognized_state" android:visibility="visible" android:layout_width="@dimen/pass_liveness_face_round_width" android:layout_height="@dimen/pass_liveness_face_round_height" android:layout_centerInParent="true"/>
+        <FrameLayout android:id="@+id/layout_pose_tip" android:paddingBottom="20dp" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@+id/img_face_recognized_state" android:layout_centerHorizontal="true">
+            <ImageView android:layout_gravity="center" android:id="@+id/iv_pose_bg" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:src="@drawable/pass_liveness_toast_bg" android:scaleType="centerCrop"/>
+            <TextView android:textSize="21sp" android:textColor="@android:color/white" android:gravity="center_horizontal" android:layout_gravity="center" android:id="@+id/tv_pose_tip" android:paddingLeft="15dp" android:paddingRight="15dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pass_liveness_put_face_round"/>
+        </FrameLayout>
+    </RelativeLayout>
+    <FrameLayout android:gravity="center" android:layout_gravity="center" android:id="@+id/layout_pose_warning" android:background="@drawable/pass_liveness_toast_bg" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <LinearLayout android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center" android:id="@+id/iv_pose_warning_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5dp" android:src="@drawable/pass_liveness_face_recognizing_waring"/>
+            <TextView android:textSize="16sp" android:textColor="@android:color/white" android:layout_gravity="center" android:id="@+id/tv_pose_warning_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pass_liveness_put_face_round"/>
+        </LinearLayout>
+    </FrameLayout>
+    <com.baidu.pass.biometrics.face.liveness.view.ConstrastLoadingView android:layout_gravity="center" android:id="@+id/constrastLoadingView" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <RelativeLayout android:paddingLeft="@dimen/pass_liveness_title_layout_margin_left" android:paddingTop="@dimen/pass_liveness_title_layout_margin_top" android:paddingRight="@dimen/pass_liveness_title_layout_margin_right" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/btn_cancel" android:padding="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/pass_liveness_cancel"/>
+    </RelativeLayout>
+</FrameLayout>

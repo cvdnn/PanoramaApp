@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:orientation="vertical" android:background="@drawable/sapi_sdk_dialog_rounded_corner" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:textSize="18sp" android:textColor="#000000" android:gravity="center" android:id="@+id/tips_tx" android:layout_width="match_parent" android:layout_height="0dp" android:text="请说出姓名、电话、地址" android:layout_weight="36"/>
+    <com.baidu.sapi2.views.RippleSurfaceView android:id="@+id/ripple_view" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="41"/>
+    <View android:background="#e0e0e0" android:layout_width="match_parent" android:layout_height="1dp"/>
+    <TextView android:textSize="18sp" android:textColor="#3388ff" android:gravity="center" android:id="@+id/stop_speech_tx" android:clickable="true" android:layout_width="match_parent" android:layout_height="0dp" android:text="说完了" android:layout_weight="23"/>
+</LinearLayout>

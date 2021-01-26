@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.baidu.picapture"
+    platformBuildVersionCode="29"
+    platformBuildVersionName="10"
+    android:compileSdkVersion="29"
+    android:compileSdkVersionCodename="10"
+    android:versionCode="511"
+    android:versionName="4.1.3.511">
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <permission
+        android:name="com.baidu.picapture.permission.sofire.RECEIVE"
+        android:protectionLevel="signatureOrSystem" />
+    <uses-permission android:name="com.baidu.picapture.permission.sofire.RECEIVE" />
+    <permission
+        android:name="com.baidu.picapture.andpermission.bridge"
+        android:permissionGroup="com.baidu.picapture.andpermission"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.baidu.picapture.andpermission.bridge" />
+    <uses-permission android:name="android.permission.BLUETOOTH_PRIVILEGED" />
+
+    <application
+        android:name="com.baidu.picapture.App"
+        android:allowBackup="false"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:extractNativeLibs="true"
+        android:icon="@drawable/ic_app_logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/ic_app_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.baidu.picapture.ui.panorama.simplepreview.PanoramaSimplePreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.baidu.picapture.ui.hotspot.simplepreview.HotSpotSimplePreviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.baidu.picapture.ui.panorama.guide.PanoramaGuideActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.baidu.picapture.ui.panorama.preview.PanoramaPreviewActivity"
+            android:process=":spherical.camera"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.baidu.picapture.ui.panorama.capture.PanoramaCaptureActivity"
+            android:process=":spherical.camera"
+            android:screenOrientation="portrait" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name="com.baidu.picapture.ui.spinphoto.SpinPhotoActivity" />
+        <activity
+            android:name="com.baidu.picapture.ui.spin.detail.SpinDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.baidu.picapture.ui.spin.preview.SpinPreviewActivity" />
+        <activity
+            android:name="com.baidu.picapture.ui.splash.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101826088" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="behind"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.picapture.ui.home.HomeActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.baidu.picapture.ui.spin.device.SpinDeviceActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.baidu.picapture.ui.webview.WebViewActivity" />
+        <activity
+            android:name="com.baidu.picapture.ui.spin.capture.SpinCaptureActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.baidu.picapture.ui.hotspot.capture.HotSpotCaptureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.baidu.picapture.ui.hotspot.preview.HotSpotPreviewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.baidu.picapture.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SapiTheme" />
+
+        <receiver
+            android:name="com.baidu.picapture.broadcastreceivers.BluetoothStatusReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.baidu.picapture.broadcastreceivers.LocaleLanguageChangeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.baidu.picapture.common.ipc.IPCService" />
+
+        <activity
+            android:name="com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassBio.SDK.Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme" />
+        <activity
+            android:name="com.baidu.sapi2.activity.social.MeizuSSOLoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.social.SinaSSOLoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.social.QQSSOLoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.social.WXLoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sofire.MyActivity"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="standard"
+            android:theme="@style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="com.baidu.action.SOFIRE.VIEW" />
+
+                <category android:name="com.baidu.category.SOFIRE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.baidu.sofire.MyService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.baidu.action.SOFIRE.VIEW" />
+
+                <category android:name="com.baidu.category.SOFIRE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+        <provider
+            android:name="com.baidu.sofire.MyProvider"
+            android:authorities="com.baidu.picapture.sofire.ac.provider"
+            android:exported="false" />
+
+        <meta-data
+            android:name="seckey_avscan"
+            android:value="660346260f8a841a04ec2a56815b421b" />
+        <meta-data
+            android:name="appkey_avscan"
+            android:value="100034" />
+
+        <activity
+            android:name="com.baidu.sapi2.activity.ShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="baidu.intent.action.account.SHARE_ACTIVITY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.baidu.sapi2.activity.OauthActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="baidu.intent.action.account.OAUTH_ACTIVITY" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.baidu.sapi2.activity.LoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.LoadExternalWebViewActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.ForgetPwdActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.RegisterActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.AccountCenterActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.AccountCenterExternalActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.AccountRealNameActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.BindWidgetActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.ModifyPwdActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.OperationRecordActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.QrLoginActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.NormalizeGuestAccountActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.AuthWidgetActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.baidu.sapi2.activity.AddressManageActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.AddressManageExternalActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.permissions.PermissionsHelperActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.InvoiceBuildActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.InvoiceBuildExternalActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="standard"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.baidu.sapi2.activity.ImageClipActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme" />
+        <activity
+            android:name="com.baidu.sapi2.activity.GrantWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:taskAffinity="com.baidu.sapi2.passport.login.grantwap"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.baidu.picapture"
+                    android:path="/passport/grantweb"
+                    android:scheme="openapp" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.baidu.sapi2.activity.SwitchAccountActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/PassportSdkTheme"
+            android:windowSoftInputMode="stateHidden" />
+
+        <provider
+            android:name="com.baidu.sapi2.provider.FileProvider"
+            android:authorities="com.baidu.picapture.passfileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/pass_sdk_file_provider" />
+        </provider>
+
+        <activity
+            android:name="com.sina.weibo.sdk.web.WeiboSdkWebActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareResultActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareTransActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.sina.weibo.sdk.share.WbShareToStoryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.yanzhenjie.permission.bridge.BridgeService"
+            android:exported="false"
+            android:permission="com.baidu.picapture.andpermission.bridge"
+            android:process=":permission">
+            <intent-filter>
+                <action android:name="com.baidu.picapture.andpermission.bridge" />
+            </intent-filter>
+        </service>
+        <activity
+            android:name="com.yanzhenjie.permission.bridge.BridgeActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:noHistory="true"
+            android:permission="com.baidu.picapture.andpermission.bridge"
+            android:process=":permission"
+            android:theme="@style/Permission.Theme.Activity.Transparent" />
+
+        <provider
+            android:name="com.yanzhenjie.permission.FileProvider"
+            android:authorities="com.baidu.picapture.file.path.share"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/permission_file_paths" />
+        </provider>
+        <provider
+            android:name="com.liulishuo.okdownload.OkDownloadProvider"
+            android:authorities="com.baidu.picapture.com.liulishuo.okdownload"
+            android:exported="false" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ae5ab529bd2fdc6e194fad6d8af135c8c1fa8527" />
+    </application>
+</manifest>

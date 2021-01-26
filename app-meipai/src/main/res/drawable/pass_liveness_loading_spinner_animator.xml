@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt" android:drawable="@drawable/pass_liveness_icon_loading_spinner" android:fromDegrees="0" android:toDegrees="360" android:pivotX="50%" android:pivotY="50%"/>

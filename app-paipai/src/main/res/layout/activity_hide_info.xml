@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/app_title"/>
+    <RelativeLayout android:id="@+id/rl_hide_view_container" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginTop="@dimen/title_height" android:layout_weight="1">
+        <com.deepai.paipai.ui.widget.AddHideInfoView android:id="@+id/view_add_hide_info" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    </RelativeLayout>
+    <RelativeLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <TextView android:textSize="@dimen/text_size_main_big" android:textColor="@color/text_color_title" android:id="@+id/tv_btn_change_focus" android:background="@drawable/shape_btn_back_index" android:padding="@dimen/vertical_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add_hide_tips" android:layout_centerInParent="true"/>
+    </RelativeLayout>
+</LinearLayout>

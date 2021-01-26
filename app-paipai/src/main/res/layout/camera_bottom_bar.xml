@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:gravity="center" android:orientation="horizontal" android:background="@color/colorPrimaryTrans" android:clickable="true" android:layout_width="match_parent" android:layout_height="100dp" android:baselineAligned="false" android:weightSum="5" android:layout_alignParentBottom="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+            <ImageView android:id="@+id/C2_Button18" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/c2_4off" android:layout_weight="1"/>
+            <ImageView android:id="@+id/C2_Button36" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/c2_5off" android:layout_weight="1"/>
+            <ImageView android:id="@+id/C2_Button72" android:visibility="gone" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/c2_6off" android:layout_weight="1"/>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@+id/ll_camera_cancel" android:padding="@dimen/horizontal_margin_little" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/cancel"/>
+                <TextView android:textSize="@dimen/text_size_main_little" android:textColor="@color/text_color_main_light" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/vertical_margin" android:text="@string/cancel"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+            <ImageButton android:id="@+id/btn_shutter_camera" android:background="#00000000" android:layout_width="@dimen/shutter_bottom_size" android:layout_height="@dimen/shutter_bottom_size" android:src="@drawable/c2_button7"/>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="1">
+            <TextView android:textSize="20dp" android:textColor="@color/bg_white" android:gravity="center" android:id="@+id/tv_pic_count" android:background="@drawable/pic_count" android:layout_width="40dp" android:layout_height="40dp" android:text="0"/>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="0.9"/>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="0.8">
+                <ImageView android:id="@+id/C2_ButtonVideo" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/c2_9off"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_weight="0.5">
+                <ImageView android:id="@+id/C2_ButtonDaoRu" android:clickable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c2_button8"/>
+                <TextView android:textSize="13sp" android:textColor="#ff717171" android:id="@+id/C2_textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="查看上一次"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:gravity="center" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1">
+        <ImageButton android:id="@+id/btn_switch_mode" android:background="@mipmap/ic_switcher_menu_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/ic_switch_camera" android:scaleType="center" android:contentDescription="@string/app_name"/>
+    </RelativeLayout>
+</LinearLayout>

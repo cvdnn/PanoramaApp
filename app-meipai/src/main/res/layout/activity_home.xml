@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:tag="layout/activity_home_0" android:fitsSystemWindows="true" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.baidu.picapture.ui.widget.bdwebview.BDWebView android:id="@+id/webView" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout android:tag="binding_1" android:background="#b3000000" android:focusable="true" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0">
+            <com.airbnb.lottie.LottieAnimationView android:layout_width="50dp" android:layout_height="50dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0" app:lottie_autoPlay="true" app:lottie_loop="true" app:lottie_rawRes="@raw/loading_anim"/>
+            <TextView android:textSize="15sp" android:textColor="@color/white" android:id="@+id/loading_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="27.3dp" android:text="@string/opening_pano_camera"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

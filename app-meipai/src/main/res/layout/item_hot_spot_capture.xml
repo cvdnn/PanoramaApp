@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:id="@+id/rl_item_hot_spot_capture" android:background="@drawable/capture_item_shape" android:layout_width="104dp" android:layout_height="104dp">
+    <ImageView android:id="@+id/iv_item_hot_spot_capture" android:layout_width="24dp" android:layout_height="20dp" android:src="@drawable/hotspot_camera_selector" android:layout_centerInParent="true"/>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:paddingLeft="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <TextView android:textSize="16sp" android:textColor="@color/black" android:id="@+id/tv_music_name" android:paddingTop="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="In your eyes"/>
+    <TextView android:textSize="14sp" android:textColor="@color/black" android:id="@+id/tv_author" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="王力宏" android:layout_below="@+id/tv_music_name"/>
+    <ImageView android:id="@+id/iv_play" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10dp" android:src="@mipmap/music_play" android:scaleType="fitXY" android:layout_centerVertical="true" android:layout_toStartOf="@+id/radio_btn"/>
+    <RadioButton android:gravity="center_vertical" android:id="@+id/radio_btn" android:paddingRight="10dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" android:layout_alignParentEnd="true"/>
+</RelativeLayout>

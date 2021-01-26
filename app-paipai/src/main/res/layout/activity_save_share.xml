@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/app_title"/>
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <TextView android:textSize="@dimen/text_size_main_big" android:gravity="center" android:background="@color/bg_white" android:paddingTop="@dimen/vertical_margin" android:paddingBottom="@dimen/vertical_margin" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/save_success" android:drawableTop="@mipmap/save_success" android:drawablePadding="@dimen/vertical_margin"/>
+        <TextView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="@dimen/title_height" android:layout_marginLeft="@dimen/horizontal_margin" android:text="@string/add_image_text"/>
+        <LinearLayout android:orientation="vertical" android:background="@color/bg_white" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/horizontal_margin">
+            <EditText android:textColor="@color/colorPrimary" android:gravity="top" android:id="@+id/edit_image_text" android:background="@null" android:padding="@dimen/horizontal_margin" android:layout_width="match_parent" android:layout_height="match_parent" android:hint="@string/input_image_text" android:maxLines="5" android:minLines="5" android:maxEms="150"/>
+        </LinearLayout>
+        <RelativeLayout android:gravity="center_vertical" android:background="@color/bg_white" android:padding="@dimen/horizontal_margin" android:layout_width="match_parent" android:layout_height="@dimen/title_height">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/location" android:drawableLeft="@mipmap/location" android:drawablePadding="@dimen/horizontal_margin"/>
+            <TextView android:layout_gravity="right" android:id="@+id/text_location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="70dp" android:text="北京" android:singleLine="true" android:drawableRight="@mipmap/location" android:drawablePadding="@dimen/horizontal_margin" android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/left_menu_icon_size">
+            <LinearLayout android:orientation="horizontal" android:padding="@dimen/horizontal_margin" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:layout_gravity="center" android:background="@color/divider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+                <TextView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/left_menu_icon_size" android:layout_marginRight="@dimen/left_menu_icon_size" android:text="同步到"/>
+                <TextView android:layout_gravity="center" android:background="@color/divider" android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:padding="@dimen/horizontal_margin" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:gravity="center" android:layout_gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:text="新浪微博" android:drawableTop="@mipmap/logo_sina" android:drawablePadding="@dimen/horizontal_margin" android:layout_weight="1" android:onClick="onSinaClick"/>
+                <TextView android:gravity="center" android:layout_gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:text="朋友圈" android:drawableTop="@mipmap/logo_wx_friend" android:drawablePadding="@dimen/horizontal_margin" android:layout_weight="1" android:onClick="onWXFreindClick"/>
+                <TextView android:gravity="center" android:layout_gravity="center" android:layout_width="0dp" android:layout_height="wrap_content" android:text="QQ空间" android:drawableTop="@mipmap/logo_qq_friend" android:drawablePadding="@dimen/horizontal_margin" android:layout_weight="1" android:onClick="onQQZnoeClick"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:background="@color/colorPrimary" android:paddingTop="@dimen/left_menu_icon_size" android:paddingBottom="@dimen/left_menu_icon_size" android:layout_width="match_parent" android:layout_height="wrap_content" android:onClick="onSendClick">
+        <TextView android:textColor="@color/bg_white" android:gravity="center" android:layout_gravity="center" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/publish" android:drawableLeft="@mipmap/send" android:drawablePadding="@dimen/vertical_margin"/>
+    </LinearLayout>
+</LinearLayout>

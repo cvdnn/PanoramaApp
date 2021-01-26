@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <include layout="@layout/app_title"/>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@+id/lin_image_head" android:background="@color/bg_white" android:padding="10dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@+id/iv_header" android:layout_width="50dp" android:layout_height="50dp" android:scaleType="fitXY"/>
+        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@mipmap/right_arrow"/>
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@+id/lin_user_name" android:background="@color/bg_white" android:paddingLeft="10dp" android:paddingTop="5dp" android:paddingRight="10dp" android:paddingBottom="5dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+        <TextView android:textSize="16sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="昵称"/>
+        <TextView android:textSize="16sp" android:gravity="right" android:id="@+id/et_user_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_left_menu_icon">
+        <item>@mipmap/my_pic</item>
+        <item>@mipmap/my_comment</item>
+        <item>@mipmap/my_device</item>
+        <item>@mipmap/my_setting</item>
+    </array>
+    <array name="array_left_menu_text">
+        <item>我的作品</item>
+        <item>我的评价</item>
+        <item>我的设备</item>
+        <item>系统设置</item>
+    </array>
+</resources>

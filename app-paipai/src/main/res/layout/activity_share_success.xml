@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/app_title"/>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/title_height">
+        <TextView android:textSize="@dimen/text_size_main_big" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/share_success" android:drawableTop="@mipmap/shared_success" android:drawablePadding="@dimen/left_menu_icon_size"/>
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="0dp" android:layout_marginLeft="@dimen/left_menu_icon_size" android:layout_marginRight="@dimen/left_menu_icon_size" android:layout_marginBottom="@dimen/title_height" android:layout_weight="1">
+        <Button android:textSize="@dimen/text_size_main_big" android:textColor="@color/text_color_title" android:background="@drawable/shape_btn_back_index" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/back_index" android:onClick="onBackIndexClick"/>
+        <Button android:textSize="@dimen/text_size_main_big" android:textColor="@color/text_color_title" android:background="@drawable/shape_btn_again" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/left_menu_icon_size" android:text="@string/again" android:onClick="onAgainImageClick"/>
+    </LinearLayout>
+</LinearLayout>

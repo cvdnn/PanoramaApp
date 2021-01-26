@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:id="@+id/linear_activity_create" android:layout_width="match_parent" android:layout_height="match_parent">
+    <RelativeLayout android:background="@color/colorPrimary" android:layout_width="match_parent" android:layout_height="48dp">
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/horizontal_margin" android:paddingRight="@dimen/horizontal_margin" android:clickable="true" android:layout_width="wrap_content" android:layout_height="match_parent" android:onClick="onBackClick">
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="10dp" android:layout_height="20dp" android:src="@mipmap/back" android:scaleType="centerInside"/>
+            <TextView android:textSize="@dimen/title_btn_text_size" android:textColor="@color/text_color_title" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/horizontal_margin" android:text="@string/back"/>
+        </LinearLayout>
+        <TextView android:textSize="@dimen/title_main_text_size" android:textColor="@color/text_color_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/edit_text" android:singleLine="true" android:layout_centerInParent="true"/>
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/horizontal_margin" android:paddingRight="@dimen/horizontal_margin" android:clickable="true" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_alignParentRight="true" android:layout_centerHorizontal="true" android:onClick="onSaveShareClick">
+            <TextView android:textColor="@color/text_color_title" android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="@string/save_share"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <FrameLayout android:gravity="center" android:background="@android:color/black" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <LinearLayout android:orientation="horizontal" android:id="@+id/linear_create_photo" android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <ImageButton android:layout_gravity="right" android:id="@+id/image_create_music" android:background="@null" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:layout_marginRight="10dp" android:src="@mipmap/play_music" android:onClick="musicClick"/>
+    </FrameLayout>
+    <LinearLayout android:orientation="horizontal" android:background="@color/colorPrimary" android:paddingTop="@dimen/left_menu_icon_size" android:paddingBottom="@dimen/left_menu_icon_size" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/bg_white" android:gravity="center" android:layout_gravity="center" android:id="@+id/tv_add_music_click" android:clickable="false" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/insert_music" android:drawableTop="@mipmap/insert_music" android:drawablePadding="@dimen/vertical_margin" android:layout_weight="1"/>
+        <TextView android:textColor="@color/bg_white" android:gravity="center" android:layout_gravity="center" android:id="@+id/tv_add_hide_info" android:clickable="false" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/add_hide_info" android:drawableTop="@mipmap/insert_hide_info" android:drawablePadding="@dimen/vertical_margin" android:layout_weight="1"/>
+        <TextView android:textColor="@color/bg_white" android:gravity="center" android:layout_gravity="center" android:id="@+id/tv_add_cut_img" android:clickable="false" android:layout_width="0dp" android:layout_height="wrap_content" android:text="@string/in_head_photo" android:drawableTop="@mipmap/insert_portrait" android:drawablePadding="@dimen/vertical_margin" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

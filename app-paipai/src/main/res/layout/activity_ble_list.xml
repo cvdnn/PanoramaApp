@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <include layout="@layout/app_title"/>
+    <LinearLayout android:orientation="vertical" android:id="@+id/ll_current_device" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="@dimen/title_height" android:layout_marginLeft="@dimen/horizontal_margin" android:layout_marginRight="@dimen/horizontal_margin" android:text="@string/current_device"/>
+        <include layout="@layout/divider"/>
+        <LinearLayout android:orientation="horizontal" android:background="@color/bg_white" android:layout_width="match_parent" android:layout_height="@dimen/title_height">
+            <TextView android:layout_gravity="center_vertical" android:id="@+id/tv_current_device_name" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/horizontal_margin" android:text="paipai360" android:singleLine="true" android:layout_weight="1"/>
+            <TextView android:layout_gravity="center_vertical" android:id="@+id/tv_current_device_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/horizontal_margin" android:text="@string/connected"/>
+            <ImageView android:layout_gravity="center_vertical" android:layout_width="20dp" android:layout_height="20dp" android:layout_marginLeft="@dimen/horizontal_margin" android:layout_marginRight="@dimen/horizontal_margin" android:src="@mipmap/ble_connected" android:scaleType="centerInside"/>
+        </LinearLayout>
+        <include layout="@layout/divider"/>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@+id/ll_other_device" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="@dimen/title_height" android:layout_marginLeft="@dimen/horizontal_margin" android:layout_marginRight="@dimen/horizontal_margin" android:text="@string/other_device"/>
+        <include layout="@layout/divider"/>
+        <ListView android:id="@+id/lv_ble_list" android:scrollbars="none" android:layout_width="match_parent" android:layout_height="match_parent" android:listSelector="@android:color/transparent" android:divider="@color/divider" android:dividerHeight="1px"/>
+        <include layout="@layout/divider"/>
+    </LinearLayout>
+</LinearLayout>

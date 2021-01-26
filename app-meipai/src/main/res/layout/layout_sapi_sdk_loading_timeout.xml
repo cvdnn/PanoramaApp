@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:aapt="http://schemas.android.com/aapt" android:gravity="center" android:orientation="vertical" android:id="@+id/sapi_sdk_loading_timeout_bg_layout" android:background="@color/sapi_sdk_background_neting_color" android:padding="8dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/sapi_sdk_loading_timeout_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/sapi_sdk_icon_connection_failed"/>
+    <TextView android:textSize="15sp" android:textColor="@color/sapi_sdk_edit_neting_color" android:id="@+id/sapi_sdk_loading_timeout_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="36.2dp" android:text="@string/sapi_sdk_common_loading_timeout"/>
+    <Button android:textSize="18sp" android:textColor="@drawable/sapi_sdk_text_gray" android:layout_gravity="center_horizontal" android:id="@+id/btn_retry" android:background="@drawable/sapi_sdk_btn_blue" android:layout_width="126dp" android:layout_height="48dp" android:layout_marginTop="17.8dp" android:layout_marginBottom="40dp" android:text="@string/sapi_sdk_common_retry_btn_text"/>
+</LinearLayout>

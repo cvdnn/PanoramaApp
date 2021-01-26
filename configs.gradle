@@ -1,0 +1,28 @@
+def aptBuildVersion() {
+    return new Date().format("yyyyMMddHH", TimeZone.getTimeZone("GMT+8")).toInteger()
+}
+
+ext {
+    app = [compileSdkVersion: 28,
+           applicationId    : "com.ztone.rule",
+           minSdkVersion    : 24,
+           targetSdkVersion : 28,
+           versionCode      : aptBuildVersion(),
+           versionName      : "2.6.10",
+           buildToolsVersion: '29.0.3',]
+}
+
+ext {
+    aptVersionCode = aptBuildVersion()
+
+    // 默认 maven
+    bintrayRepo = 'maven'
+
+    developerId = 'handy'
+    developerName = 'Cvdnn'
+    developerEmail = 'cvvdnn@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}

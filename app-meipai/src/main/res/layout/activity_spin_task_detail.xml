@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:tag="layout/activity_spin_task_detail_0">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/navigation_bar"
+        app:layout_constraintTop_toTopOf="0" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="0"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/task_cover"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:tag="binding_1"
+                app:layout_constraintEnd_toEndOf="0"
+                app:layout_constraintStart_toStartOf="0"
+                app:layout_constraintTop_toTopOf="0">
+
+                <ImageView
+                    android:id="@+id/cover_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/black" />
+
+                <Button
+                    android:id="@+id/btn_preview"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="bottom|right|center_vertical|center_horizontal|center|end"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/pano_detail_task_preview_selector"
+                    android:tag="binding_2"
+                    android:visibility="visible" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_hot_spot_collection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="0"
+                app:layout_constraintTop_toBottomOf="@+id/task_cover">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hot_spot_collection"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="8dp"
+                    android:background="#ebebeb" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/task_detail_hot_spot_desc"
+                    android:textColor="#999999"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <com.baidu.picapture.ui.widget.HotGridView
+                android:id="@+id/gv_hot_spot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="12dp"
+                android:horizontalSpacing="12dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="3"
+                android:verticalSpacing="12dp"
+                app:layout_constraintLeft_toLeftOf="0"
+                app:layout_constraintTop_toBottomOf="@+id/ll_hot_spot_collection" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="114dp"
+        android:background="@drawable/button_shadow"
+        android:gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="0">
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="162dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/button_round_white_selector"
+            android:tag="binding_3"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@drawable/button_round_white_text_color_selector"
+            android:textSize="16sp" />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="162dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/button_blue_selector"
+            android:tag="binding_4"
+            android:text="@string/create_task"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b3000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:tag="binding_5">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="0"
+            app:layout_constraintEnd_toEndOf="0"
+            app:layout_constraintStart_toStartOf="0"
+            app:layout_constraintTop_toTopOf="0">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:tag="binding_6"
+                app:layout_constraintBottom_toBottomOf="0"
+                app:layout_constraintEnd_toEndOf="0"
+                app:layout_constraintStart_toStartOf="0"
+                app:layout_constraintTop_toTopOf="0"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/loading_anim" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_white_warning"
+                android:tag="binding_7" />
+
+            <com.baidu.picapture.ui.widget.CircleProgressBar
+                android:id="@+id/task_progress"
+                android:layout_width="69.7dp"
+                android:layout_height="69.7dp"
+                android:tag="binding_8"
+                app:normal_color="@color/white"
+                app:progress="100"
+                app:progress_color="@color/circle_progress"
+                app:progress_style="0"
+                app:stroke_width="3dp"
+                app:text="100%"
+                app:text_color="@color/white"
+                app:text_size="17sp" />
+
+            <TextView
+                android:id="@+id/create_content_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27.3dp"
+                android:text="@string/spin_task_detail_uploading"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

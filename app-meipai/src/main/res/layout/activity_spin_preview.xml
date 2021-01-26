@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    android:fitsSystemWindows="true"
+    android:tag="layout/activity_spin_preview_0">
+
+    <FrameLayout
+        android:id="@+id/spin_view_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintTop_toTopOf="0">
+
+        <com.baidu.picapture.ui.widget.SpinView
+            android:id="@+id/spin_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/preview_rotate_tip"
+            android:layout_width="208dp"
+            android:layout_height="208dp"
+            android:layout_gravity="center"
+            android:background="@drawable/preview_rotate_tip_shape"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_preview_rotate"
+                android:drawablePadding="14dp"
+                android:gravity="center"
+                android:text="@string/capture_preview_rotate_360"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="84dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_round_grey_selector"
+        android:drawableStart="@drawable/ic_reset"
+        android:gravity="center"
+        android:paddingStart="17dp"
+        android:paddingEnd="17dp"
+        android:tag="binding_1"
+        android:text="@string/capture_preview_reset"
+        android:textAllCaps="false"
+        android:textColor="#ffffffff"
+        android:textSize="14sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/spin_view_content"
+        app:layout_constraintEnd_toEndOf="0"
+        app:layout_constraintStart_toStartOf="0" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#e0e0e0"
+        app:layout_constraintBottom_toTopOf="@+id/fl_bottom" />
+
+    <RelativeLayout
+        android:id="@+id/fl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="0">
+
+        <TextView
+            android:id="@+id/ll_recapture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="40dp"
+            android:drawableTop="@drawable/recapture_selector"
+            android:drawablePadding="6.7dp"
+            android:gravity="center_horizontal"
+            android:tag="binding_2"
+            android:text="@string/recapture"
+            android:textColor="@drawable/grey_text_color_selector"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ll_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="40dp"
+            android:drawableTop="@drawable/complete_selector"
+            android:drawablePadding="6.7dp"
+            android:gravity="center_horizontal"
+            android:tag="binding_3"
+            android:text="@string/complete"
+            android:textColor="@drawable/grey_text_color_selector"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:fitsSystemWindows="true"
+    android:tag="layout/activity_spot_preview_0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_spot_show"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/selector_round_back"
+                android:tag="binding_1" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="14dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed_title"
+                android:layout_width="match_parent"
+                android:layout_height="17dp"
+                android:layout_marginBottom="19.5dp"
+                android:background="@color/white"
+                android:hint="@string/hotspot_hint_title"
+                android:importantForAutofill="2"
+                android:inputType="text"
+                android:maxLength="20"
+                android:singleLine="true"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e0e0e0" />
+
+            <EditText
+                android:id="@+id/ed_describe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="17.5dp"
+                android:background="@color/white"
+                android:gravity="top|left|center_vertical|center_horizontal|center|start"
+                android:hint="@string/hotspot_hint_describe"
+                android:importantForAutofill="2"
+                android:inputType="textMultiLine"
+                android:maxLength="200"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textCursorDrawable="@drawable/edit_cursor_color"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#e0e0e0" />
+
+        <RelativeLayout
+            android:id="@+id/hotspot_capture"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:tag="binding_2">
+
+            <TextView
+                android:id="@+id/ll_recapture"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="25dp"
+                android:drawableTop="@drawable/recapture_selector"
+                android:drawablePadding="6.7dp"
+                android:gravity="center_horizontal"
+                android:tag="binding_3"
+                android:text="@string/recapture"
+                android:textColor="@drawable/grey_text_color_selector"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/ll_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp"
+                android:drawableTop="@drawable/complete_selector"
+                android:drawablePadding="6.7dp"
+                android:gravity="center_horizontal"
+                android:tag="binding_4"
+                android:text="@string/complete"
+                android:textColor="@drawable/grey_text_color_selector"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hotspot_view"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:tag="binding_5">
+
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="25dp"
+                android:drawableTop="@drawable/delete_selector"
+                android:drawablePadding="6.7dp"
+                android:gravity="center_horizontal"
+                android:tag="binding_6"
+                android:text="@string/delete"
+                android:textColor="@drawable/grey_text_color_selector"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="40dp"
+                android:drawableTop="@drawable/complete_selector"
+                android:drawablePadding="6.7dp"
+                android:gravity="center_horizontal"
+                android:tag="binding_7"
+                android:text="@string/complete"
+                android:textColor="@drawable/grey_text_color_selector"
+                android:textSize="12sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
