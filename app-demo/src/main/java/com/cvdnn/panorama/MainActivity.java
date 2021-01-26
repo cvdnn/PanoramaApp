@@ -18,10 +18,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
+import android.io.FileUtils;
 import android.log.Log;
 import android.math.Maths;
-import android.network.NetUtils;
-import android.network.Response;
+import android.math.ShortDigest;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.view.TextureView;
@@ -33,14 +33,18 @@ import androidx.core.content.ContextCompat;
 
 import com.cvdnn.camera.CameraWrap;
 import com.cvdnn.camera.ImageUtils;
+import com.cvdnn.net.NetUtils;
+import com.cvdnn.net.Result;
 import com.cvdnn.panorama.BleEngine.SpinType;
 import com.cvdnn.panorama.databinding.ActSpinBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import net.lingala.zip4j.ZipFile;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Future;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.BLUETOOTH;
@@ -54,8 +58,8 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static com.cvdnn.panorama.BleEngine.BT_IDLE_MILLIS;
 import static com.cvdnn.panorama.BleEngine.FLAG_END_MOTION;
-import static com.cvdnn.panorama.BleEngine.FLAG_START_MOTION;
 import static com.cvdnn.panorama.BleEngine.SpinType.SPIN18;
+import static com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE;
 
 public class MainActivity extends FrameActivity<ActSpinBinding> {
     private static final String TAG = "MainActivity";
@@ -99,7 +103,10 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
     private int mDeviceState;
 
     private Camera mCamera;
-    private File mPictureTempPath;
+    private File mDirPicturePath;
+
+    private Snackbar mSnackbar;
+    private Future<?> mZipPutFuture;
 
     @Override
     protected final ActSpinBinding onViewBinding() {
@@ -112,7 +119,7 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
 
         // 使用此检查确定设备是否支持BLE。 然后你可以有选择地禁用与BLE相关的功能
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
-            makeToast("ble_not_supported");
+            makeSnack("ble_not_supported");
 
             finish();
         }
@@ -278,11 +285,13 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
                 if (!result) {
                     // FIXME 提示重连等
                     Log.e(TAG, ":::Attempting to start service discovery:" + result);
+                    makeSnack("Attempting to start service discovery:" + result);
                 }
 
             } else if (newState == STATE_DISCONNECTED) {
                 mConnectionState = STATE_DISCONNECTED;
                 Log.i(TAG, ":::Disconnected from GATT server.");
+                makeSnack("Disconnected from GATT server");
 
                 // FIXME 提示重连等
             }
@@ -307,7 +316,7 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
                 if (BleEngine.checkResponse(bytes)) {
                     mDeviceState = FLAG_STATE_SUCCESS;
 
-                    makeToast("设备连接成功");
+                    makeSnack("设备连接成功");
                 } else {
                     Log.d(TAG, "::: onCharacteristicRead: %d, %s: %s", characteristic.getUuid(), Arrays.toString(bytes));
                 }
@@ -319,11 +328,7 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
             byte[] bytes = characteristic.getValue();
             if (BleEngine.asResponse(bytes)) {
                 byte state = BleEngine.getState(bytes);
-                // 设备开始启动运行
-                if (state == FLAG_START_MOTION) {
-
-                    // 设备运行成功
-                } else if (state == FLAG_END_MOTION) {
+                if (state == FLAG_END_MOTION) {
                     // FIXME 模拟开始拍照
                     Loople.Task.schedule(() -> onInvokeTakePicture(), BT_IDLE_MILLIS);
                 }
@@ -359,22 +364,28 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
         if (mDeviceState == FLAG_STATE_SUCCESS) {
             binding.ccpBar.setVisibility(VISIBLE);
 
-            mPictureTempPath = new File(getExternalCacheDir(), Maths.unique());
-            mPictureTempPath.mkdirs();
-            Log.e(TAG, ":: path: %s", mPictureTempPath.getAbsoluteFile());
+            // FIXME api接口测试
+//            mDirPicturePath = new File(getExternalCacheDir(), "a1V0kaz6be4");
+//            Loople.Task.schedule(() -> {
+//                onPutZipFile();
+//            });
+
+            mDirPicturePath = new File(getExternalCacheDir(), Maths.unique());
+            mDirPicturePath.mkdirs();
+            Log.e(TAG, ":: path: %s", mDirPicturePath.getAbsoluteFile());
 
             // FIXME 模拟开始拍照
             mTakeIndex = 0;
-            onInvokeTakePicture();
+            takeAround();
 
         } else if (mDeviceState == FLAG_STATE_FAIL) {
             binding.ccpBar.setVisibility(INVISIBLE);
 
             // FIXME 重连策略
-            makeToast("等待设备连接失败");
+            makeSnack("等待设备连接失败");
 
         } else {
-            makeToast("等待设备连接");
+            makeSnack("等待设备连接");
         }
     };
 
@@ -384,49 +395,75 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
     @WorkerThread
     private void onInvokeTakePicture() {
         if (mTakeIndex >= 0 && mTakeIndex < mSpinType.num) {
+            runOnUiThread(() -> binding.ccpBar.setProgress(mTakeIndex));
+
             takePicture();
-            BleEngine.takeAround(mBluetoothGatt, mSendCharacteristic, mSpinType);
 
         } else if (mTakeIndex >= mSpinType.num) {
 
             // 完成环物拍照
             Loople.Main.post(() -> binding.ccpBar.setVisibility(INVISIBLE));
-            Loople.Task.schedule(() -> {
-                File zipFilePath = new File(mPictureTempPath, mPictureTempPath.getName() + ".zip");
-                ZipFile zipfile = new ZipFile(zipFilePath);
-                File[] fileList = mPictureTempPath.listFiles();
-                if (Assert.notEmpty(fileList)) {
-                    try {
-                        zipfile.addFiles(Arrays.asList(fileList));
-                    } catch (Exception e) {
-                        Log.e(TAG, e);
-                    }
-                }
+            mZipPutFuture = Loople.Task.schedule(this::onPutZipFile);
 
-                Response response = NetUtils.post("", zipFilePath);
-                if (NetUtils.success(response)) {
-                    makeToast("拍照完成");
-                } else {
-                    makeToast("上传呢失败");
-                }
+            runOnUiThread(() -> {
+                mSnackbar = Snackbar.make(binding.getRoot(), "资源文件上传中...", LENGTH_INDEFINITE)
+                        .setAction("取消", v -> {
+                            mZipPutFuture = Loople.Task.cancel(mZipPutFuture);
+                        });
+                mSnackbar.show();
             });
 
             mTakeIndex = -1;
-            // 转盘回正
-            BleEngine.takeAround(mBluetoothGatt, mSendCharacteristic, mSpinType);
-
             Log.e(TAG, "::: ------ finish -------");
         }
     }
 
-    private void takePicture() {
-        runOnUiThread(() -> binding.ccpBar.setProgress(mTakeIndex + 1));
+    private void takeAround() {
+        BleEngine.takeAround(mBluetoothGatt, mSendCharacteristic, mSpinType);
+    }
 
+    private void takePicture() {
         if (mCamera != null) {
             mCamera.takePicture(null, null, mPictureCallback);
         }
 
         mTakeIndex++;
+    }
+
+    private void onPutZipFile() {
+        if (Assert.exists(mDirPicturePath)) {
+            String zipName = mDirPicturePath.getName();
+
+            File zipFilePath = new File(mDirPicturePath, zipName + ".zip");
+            ZipFile zipfile = new ZipFile(zipFilePath);
+            File[] fileList = mDirPicturePath.listFiles();
+            if (Assert.notEmpty(fileList)) {
+                try {
+                    zipfile.addFiles(Arrays.asList(fileList));
+                } catch (Exception e) {
+                    Log.e(TAG, e);
+                }
+            }
+
+            Result result = NetUtils.put("环物拍照_" + ShortDigest.encrypt(zipName), zipFilePath);
+            if (NetUtils.success(result)) {
+                Log.i(TAG, ":: ----> 拍照完成");
+                runOnUiThread(() -> mSnackbar.setText("拍照完成")
+                        .setAction("确定", v -> {
+
+                        }));
+            } else {
+                Log.e(TAG, ":: xxxxx> 上传失败");
+                runOnUiThread(() -> mSnackbar.setText("上传失败")
+                        .setAction("重试", v -> {
+                            onPutZipFile();
+                        }));
+            }
+        }
+
+
+        FileUtils.delete(mDirPicturePath);
+        mDirPicturePath = null;
     }
 
     private void onActiveApp() {
@@ -475,16 +512,20 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
     }
 
     private final Camera.PictureCallback mPictureCallback = (data, camera) -> {
-        Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-        if (bitmap != null) {
-            Bitmap newBmp = ImageUtils.getRotatedBitmap(bitmap, 90);
-            bitmap = ImageUtils.recycle(bitmap);
-
-            ImageUtils.write(newBmp, new File(mPictureTempPath, String.format("%02d.jpg", mTakeIndex)));
-            newBmp = ImageUtils.recycle(newBmp);
-        }
-
         runOnUiThread(camera::startPreview);
+
+        Loople.Task.schedule(() -> {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            if (bitmap != null) {
+                Bitmap newBmp = ImageUtils.getRotatedBitmap(bitmap, 90);
+                ImageUtils.recycle(bitmap);
+
+                ImageUtils.write(newBmp, new File(mDirPicturePath, String.format("00_%02d_cover.jpg", mTakeIndex)));
+                newBmp = ImageUtils.recycle(newBmp);
+            }
+
+            Loople.Task.schedule(this::takeAround, BT_IDLE_MILLIS);
+        });
     };
 
     private boolean checkPermissions(String[] neededPermissions) {
