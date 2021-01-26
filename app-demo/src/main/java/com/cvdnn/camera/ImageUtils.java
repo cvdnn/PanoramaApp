@@ -16,6 +16,7 @@ public class ImageUtils {
 
     public static Bitmap getRotatedBitmap(Bitmap bitmap, int rotation) {
         Matrix matrix = new Matrix();
+        matrix.setScale(0.5f, 0.5f);
         matrix.postRotate(rotation);
 
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
