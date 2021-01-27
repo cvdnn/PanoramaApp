@@ -72,7 +72,7 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
     private static final int ACTION_REQUEST_BLUETOOTH_LE = 1001;
 
     // Stops scanning after 10 seconds.
-    private static final long SCAN_PERIOD = 10000;
+    private static final long SCAN_PERIOD = 10_000;
 
     private static final int STATE_DISCONNECTED = 0;
     private static final int STATE_CONNECTING = 1;

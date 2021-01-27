@@ -17,8 +17,6 @@
             <option value="$PROJECT_DIR$/app-meipai" />
             <option value="$PROJECT_DIR$/app-paipai" />
             <option value="$PROJECT_DIR$/lib-ccpb" />
-            <option value="$PROJECT_DIR$/../../ztone/ZtoneLang/cvdnn-lang" />
-            <option value="$PROJECT_DIR$/../../ztone/ZtoneLang/cvdnn-network" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -16,6 +16,7 @@ public class ImageUtils {
 
     public static Bitmap getRotatedBitmap(Bitmap bitmap, int rotation) {
         Matrix matrix = new Matrix();
+        // FIXME DEMO临时策略，为了缩小图片大小
         matrix.setScale(0.5f, 0.5f);
         matrix.postRotate(rotation);
 

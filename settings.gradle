@@ -4,11 +4,3 @@ include ':lib-ccpb'
 include ':app-meipai'
 include ':app-paipai'
 include ':app-demo'
-
-// cvdnn-lang
-include ':cvdnn-lang'
-project(':cvdnn-lang').projectDir = new File('/Users/xiot/workon/ztone/ZtoneLang/cvdnn-lang')
-
-// cvdnn-network
-include ':cvdnn-network'
-project(':cvdnn-network').projectDir = new File('/Users/xiot/workon/ztone/ZtoneLang/cvdnn-network')

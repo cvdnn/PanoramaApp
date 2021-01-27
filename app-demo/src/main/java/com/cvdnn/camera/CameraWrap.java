@@ -17,8 +17,8 @@ import static android.view.Surface.ROTATION_90;
 public final class CameraWrap {
     private static final String TAG = "CameraEngine";
 
-    public static final int WIDTH = 640;
-    public static final int HEIGHT = 480;
+    public static final int WIDTH = 600;
+    public static final int HEIGHT = 800;
 
     /**
      * 相机数量为2则打开1,1则打开0，相机ID 1为前置，0为后置
