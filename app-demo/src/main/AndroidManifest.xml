@@ -5,13 +5,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
-    <!--蓝牙必须的权限-->
+    <uses-feature android:name="android.hardware.camera.autofocus" /> <!-- 蓝牙必须的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-    <!--android6.0以上使用蓝牙需要的权限，否则在Android6.0以上的手机扫描不到蓝牙设备-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- android6.0以上使用蓝牙需要的权限，否则在Android6.0以上的手机扫描不到蓝牙设备 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -35,6 +31,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PanoramaApp"
         android:usesCleartextTraffic="true">
+        <activity android:name=".WebViewActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

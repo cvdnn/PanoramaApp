@@ -37,12 +37,14 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.2.1'
 
-    implementation 'com.cvdnn:android-lang:0.5.38'
+    implementation 'com.cvdnn:android-lang:0.5.40'
     implementation 'com.cvdnn:android-frame:0.1.7'
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.1'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'net.lingala.zip4j:zip4j:2.6.4'
+
+    implementation 'top.zibin:Luban:1.1.8'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

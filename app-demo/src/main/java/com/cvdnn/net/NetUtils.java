@@ -31,8 +31,8 @@ public class NetUtils {
             .callTimeout(20, MINUTES)
             .build();
 
-    public static Result put(String name, File file) {
-        Result result = null;
+    public static PanoEntity put(String name, File file) {
+        PanoEntity entity = null;
 
         MultipartBody mpBody = new MultipartBody.Builder()
                 .setType(FORM)
@@ -50,13 +50,13 @@ public class NetUtils {
         try {
             Response response = client.newCall(request).execute();
             if (response.isSuccessful()) {
-                result = new Gson().fromJson(response.body().string(), Result.class);
+                entity = new Gson().fromJson(response.body().string(), PanoEntity.class);
             }
         } catch (Exception e) {
             Log.e(TAG, e);
         }
 
-        return result;
+        return entity;
     }
 
     public static boolean success(Result rst) {

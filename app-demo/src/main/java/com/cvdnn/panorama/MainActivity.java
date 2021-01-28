@@ -34,9 +34,10 @@ import androidx.core.content.ContextCompat;
 import com.cvdnn.camera.CameraWrap;
 import com.cvdnn.camera.ImageUtils;
 import com.cvdnn.net.NetUtils;
-import com.cvdnn.net.Result;
+import com.cvdnn.net.PanoEntity;
 import com.cvdnn.panorama.BleEngine.SpinType;
 import com.cvdnn.panorama.databinding.ActSpinBinding;
+import com.cvdnn.panorama.model.WebViewModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import net.lingala.zip4j.ZipFile;
@@ -44,6 +45,7 @@ import net.lingala.zip4j.ZipFile;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.Future;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -445,12 +447,13 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
                 }
             }
 
-            Result result = NetUtils.put("环物拍照_" + ShortDigest.encrypt(zipName), zipFilePath);
-            if (NetUtils.success(result)) {
+            PanoEntity entity = NetUtils.put("环物拍照_" + ShortDigest.encrypt(zipName), zipFilePath);
+            if (NetUtils.success(entity)) {
                 Log.i(TAG, ":: ----> 拍照完成");
                 runOnUiThread(() -> mSnackbar.setText("拍照完成")
                         .setAction("确定", v -> {
-
+                            WebViewModel.url = entity.data.viewUrl;
+                            startActivity(new Intent(getApplicationContext(), WebViewActivity.class));
                         }));
             } else {
                 Log.e(TAG, ":: xxxxx> 上传失败");
@@ -515,12 +518,17 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
         runOnUiThread(camera::startPreview);
 
         Loople.Task.schedule(() -> {
-            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            BitmapFactory.Options options = ImageUtils.loadBitmapOptions(data);
+            options.inSampleSize = ImageUtils.inSampleSize(options.outWidth, options.outHeight);
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            options.inJustDecodeBounds = false;
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
             if (bitmap != null) {
-                Bitmap newBmp = ImageUtils.getRotatedBitmap(bitmap, 90);
-                ImageUtils.recycle(bitmap);
+                Bitmap newBmp = ImageUtils.rotateImage(bitmap, 90);
+                bitmap = ImageUtils.recycle(bitmap);
 
-                ImageUtils.write(newBmp, new File(mDirPicturePath, String.format("00_%02d_cover.jpg", mTakeIndex)));
+                File outFile = new File(mDirPicturePath, String.format(Locale.getDefault(), "00_%02d_cover.jpg", mTakeIndex));
+                ImageUtils.write(newBmp, outFile, 60);
                 newBmp = ImageUtils.recycle(newBmp);
             }
 
