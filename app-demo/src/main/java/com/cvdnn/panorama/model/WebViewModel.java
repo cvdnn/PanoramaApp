@@ -1,7 +1,7 @@
 package com.cvdnn.panorama.model;
 
-import android.Args;
 import android.Loople;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.util.Log;
@@ -27,9 +27,13 @@ public final class WebViewModel extends ModelBinding<ActWebviewBinding> {
 
     public static String url;
 
+    private Context mContext;
+
     @Override
     protected void onCreate(LifecycleOwner owner) {
         super.onCreate(owner);
+
+        mContext = mBinding.webView.getContext();
 
         mBinding.webView.setOnKeyListener(mWebKeyListener);
         mBinding.webView.setWebViewClient(mWebClient);
@@ -89,7 +93,7 @@ public final class WebViewModel extends ModelBinding<ActWebviewBinding> {
         //设置可以访问文件
         webSettings.setAllowFileAccess(true);
         webSettings.setDatabaseEnabled(true);
-        webSettings.setAppCachePath(Args.App.getCacheDir().getAbsolutePath());
+        webSettings.setAppCachePath(mContext.getCacheDir().getAbsolutePath());
 
         //支持通过JS打开新窗口
         webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
