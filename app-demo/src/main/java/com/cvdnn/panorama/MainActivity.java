@@ -205,7 +205,7 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
             BluetoothDevice bd = result.getDevice();
 
             String devName = bd.getName();
-            if (Assert.notEmpty(devName) && bd.getName().startsWith("FC-")) {
+            if (Assert.notEmpty(devName) && bd.getName().startsWith("FC-30M")) {
                 // FIXME DEMO测试单个设备
                 mBluetoothLeScanner.stopScan(this);
 
@@ -331,7 +331,6 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
             if (BleEngine.asResponse(bytes)) {
                 byte state = BleEngine.getState(bytes);
                 if (state == FLAG_END_MOTION) {
-                    // FIXME 模拟开始拍照
                     Loople.Task.schedule(() -> onInvokeTakePicture(), BT_IDLE_MILLIS);
                 }
             }
@@ -428,8 +427,6 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
         if (mCamera != null) {
             mCamera.takePicture(null, null, mPictureCallback);
         }
-
-        mTakeIndex++;
     }
 
     private void onPutZipFile() {
@@ -531,6 +528,8 @@ public class MainActivity extends FrameActivity<ActSpinBinding> {
                 ImageUtils.write(newBmp, outFile, 60);
                 newBmp = ImageUtils.recycle(newBmp);
             }
+
+            mTakeIndex++;
 
             Loople.Task.schedule(this::takeAround, BT_IDLE_MILLIS);
         });

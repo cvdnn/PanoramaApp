@@ -36,15 +36,25 @@ public class BleEngine {
     private static final byte[] RESPONSE_CHARACTERISTIC = {0, 0, 0, 0};
 
     public enum SpinType {
-        SPIN18((byte) 4, 18),
-        SPIN36((byte) 2, 36),
-        SPIN72((byte) 1, 72);
+        STOP(0x00, 0),
+        SPINFF(0b1010_0000, 1),
+        SPIN01(0b0100_0000, 1),
+        SPIN02(0b0010_0000, 2),
+        SPIN04(0b0001_0000, 4),
+        SPIN09(0b0000_1000, 9),
+        SPIN18(0b0000_0100, 18),
+        SPIN36(0b0000_0010, 36),
+        SPIN72(0b0000_0001, 72),
+        SPIN50000(0b1000_0000, 50_000),
+        SPIN60000(0b1001_0000, 60_000),
+        SPIN80000(0b1100_0000, 80_000),
+        SPIN90000(0b1110_0000, 90_000);
 
         public byte type;
         public int num;
 
-        SpinType(byte t, int n) {
-            type = t;
+        SpinType(int t, int n) {
+            type = (byte) t;
             num = n;
         }
     }
