@@ -441,4 +441,4 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## [环物拍照接口](http://192.168.1.47:8067/api/swagger-ui.html)
 - 环物拍照过程拍照次数需要控制；
-- 资源徐打包成zip上传，文件格式: 00_00_cover.jpg, 00_01_cover.jpg
+- 资源打包成zip上传，文件格式: 00_00_cover.jpg, 00_01_cover.jpg
